@@ -7,15 +7,20 @@
 using namespace std;
 // team2:$1$4fTgjp6q$Gd5qwn1CNK8AbBmGkbmT10:16653:0:99999:7:::
 // change goal to Gd5qwn1CNK8AbBmGkbmT10
-string salt = "4fTgjp6q";
-string goal = "Gd5qwn1CNK8AbBmGkbmT10";
+
+// actual
+//string salt = "4fTgjp6q";
+//string goal = "Gd5qwn1CNK8AbBmGkbmT10";
+
+// testing
+// team26:$1$hfT7jp2q$myShokVRzM1uK.lTiAts0/:16653:0:99999:7:::(bwhskk)
+string salt = "hfT7jp2q";
+string goal = "myShokVRzM1uK.lTiAts0/";
 
 void pwd_recurs(vector<char>,string,int);
 
 int main(){
     vector<char> alphabat;
-
-    cout << "step 0: main" << endl;
 
     for(int i = 0; i < 26; i++) {
         alphabat.push_back((char)(97 + i));
