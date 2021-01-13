@@ -13,9 +13,9 @@ using namespace std;
 //string goal = "Gd5qwn1CNK8AbBmGkbmT10";
 
 // testing
-// team26:$1$hfT7jp2q$myShokVRzM1uK.lTiAts0/:16653:0:99999:7:::(bwhskk)
+// team0:$1$hfT7jp2q$wPwz7GC6xLt9eQZ9eJkaq.:16653:0:99999:7:::(zhgnnd)
 string salt = "hfT7jp2q";
-string goal = "myShokVRzM1uK.lTiAts0/";
+string goal = "wPwz7GC6xLt9eQZ9eJkaq.";
 
 void pwd_recurs(vector<char>,string,int);
 
@@ -43,9 +43,13 @@ void pwd_recurs(vector<char> alphabat, string curr, int pwdlen) {
     if(pwdlen == 0) {
         // check given hash and generated hash here
         // curr is the current string being tested, goal is the hashed password
+        curr = "zhgnnd";
         string result = pwd_init(curr, salt);
+        cout << "Result after init: " << result << endl;
         result = loop(curr, salt, result);
+        cout << "Result after loop: " << result << endl;
         result = finalize(curr, salt, result);
+        cout << "Result after final: " << result << endl;
         if(result == goal) {
             cout << "Found:  " << curr << endl;
             // terminate the function early once we find the password
