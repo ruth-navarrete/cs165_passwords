@@ -10,8 +10,17 @@ using namespace std;
 #define MAX_THREADS 5
 // team2:$1$4fTgjp6q$Gd5qwn1CNK8AbBmGkbmT10:16653:0:99999:7:::
 // change goal to Gd5qwn1CNK8AbBmGkbmT10
+
 string salt = "4fTgjp6q";
 string goal = "Gd5qwn1CNK8AbBmGkbmT10";
+
+// actual
+//string salt = "4fTgjp6q";
+//string goal = "Gd5qwn1CNK8AbBmGkbmT10";
+
+// testing
+// team0:$1$hfT7jp2q$wPwz7GC6xLt9eQZ9eJkaq.:16653:0:99999:7:::(zhgnnd)
+
 
 void pwd_recurs(vector<char>,string,int);
 
@@ -58,10 +67,12 @@ void pwd_recurs(vector<char> alphabat, string curr, int pwdlen) {
     if(pwdlen == 0) {
         // check given hash and generated hash here
         // curr is the current string being tested, goal is the hashed password
+
         //cout << curr << endl;
+
         string result = pwd_init(curr, salt);
         result = loop(curr, salt, result);
-        // result = finalize(curr, salt, result);
+        result = finalize(curr, salt, result);
         if(result == goal) {
             cout << "Found:  " << curr << endl;
             // terminate the function early once we find the password

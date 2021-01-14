@@ -5,15 +5,16 @@ using namespace std;
 
 const string base64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
+
 string to64(unsigned long v, int n) {
     string ret ="";
     for(int i = 0; i < n; i++) {
-        ret += base64[v&0x3f];
+        ret += base64[v & 0x3f];
         v >>= 6;
     }
-
     return ret;
 }
+
 
 string finalize(string h) {
     string h_hex = "";
@@ -34,5 +35,3 @@ string finalize(string h) {
            to64(((unsigned char)h[3] << 16) | ((unsigned char)h[9] << 8) | ((unsigned char)h[15]), 4) +
            to64(((unsigned char)h[4] << 16) | ((unsigned char)h[10] << 8) | ((unsigned char)h[5]), 4) +
            to64((unsigned char)h[11], 2);
-
-}
