@@ -25,14 +25,14 @@ string goal = "Gd5qwn1CNK8AbBmGkbmT10";
 void pwd_recurs(vector<char>,string,int);
 
 int main(){
-    vector<char> alphabat;
+    vector<char> alphabet;
     int lowest_length = 1;
     int upper_bound = 7;
     double start_time;
     cout << "step 0: main" << endl;
 
     for(int i = 0; i < 26; i++) {
-        alphabat.push_back((char)(97 + i));
+        alphabet.push_back((char)(97 + i));
     }
     // string curr = "zhgnnd";
     // string salt_test = "hfT7jp2q";
@@ -51,10 +51,10 @@ int main(){
     int i;
     start_time = omp_get_wtime();
     for(int i = 1; i < 2; i++) {
-        string starting_letter = string(1,alphabat[i]);
+        string starting_letter = string(1,alphabet[i]);
         cout << "Currently checking string starting with: " << starting_letter << endl;
-        pwd_recurs(alphabat, starting_letter, 5);
-        cout << "Passwords starts with " << alphabat[i] << " are cleared.\n";
+        pwd_recurs(alphabet, starting_letter, 5);
+        cout << "Passwords starts with " << alphabet[i] << " are cleared.\n";
     }
     double end_time = omp_get_wtime() -start_time;
     cout << "Total elaspsed time = " << end_time << endl;
@@ -62,7 +62,7 @@ int main(){
 }
 
 // use backtracking to get through all the possible candidates
-void pwd_recurs(vector<char> alphabat, string curr, int pwdlen) {
+void pwd_recurs(vector<char> alphabet, string curr, int pwdlen) {
     // if no more combinations of password to try, current combination length is done
     if(pwdlen == 0) {
         // check given hash and generated hash here
@@ -82,15 +82,15 @@ void pwd_recurs(vector<char> alphabat, string curr, int pwdlen) {
     }
     
     // if there are still combinations to check
-    // iterate over the letters in alphabat
+    // iterate over the letters in alphabet
     int ii;
     #pragma omp parallel for private(ii)
-    for(int ii = 0; ii < alphabat.size(); ii++) {
+    for(int ii = 0; ii < alphabet.size(); ii++) {
         string candidate;
         // append the current letter to the current combination
-        candidate = curr + alphabat[ii];
+        candidate = curr + alphabet[ii];
         // check next letter 
         
-        pwd_recurs(alphabat, candidate, pwdlen - 1);
+        pwd_recurs(alphabet, candidate, pwdlen - 1);
     }
 }
