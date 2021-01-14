@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <algorithm>
 
-std::string finalize(std::string, std::string, std::string);
-std::string to64(int, int);
+std::string finalize(std::string);
+std::string to64(unsigned long , int);
 
 #endif

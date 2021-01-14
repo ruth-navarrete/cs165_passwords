@@ -43,6 +43,6 @@ string loop(string pwd, string salt, string h) {
 
         h = md5(tmp);
     }
-    cout << "In loop, final h is: "<< h << endl;
+    //cout << "In loop: " << h << endl;
     return h;
 }
