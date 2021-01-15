@@ -35,3 +35,4 @@ string finalize(string h) {
            to64(((unsigned char)h[3] << 16) | ((unsigned char)h[9] << 8) | ((unsigned char)h[15]), 4) +
            to64(((unsigned char)h[4] << 16) | ((unsigned char)h[10] << 8) | ((unsigned char)h[5]), 4) +
            to64((unsigned char)h[11], 2);
+}
