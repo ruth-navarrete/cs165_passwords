@@ -10,7 +10,6 @@ using namespace std;
 #define MAX_THREADS 5
 
 // team2:$1$4fTgjp6q$Gd5qwn1CNK8AbBmGkbmT10:16653:0:99999:7:::
-// change goal to Gd5qwn1CNK8AbBmGkbmT10
 string salt = "4fTgjp6q";
 string goal = "Gd5qwn1CNK8AbBmGkbmT10";
 
@@ -47,10 +46,10 @@ int main() {
     int i;
     start_time = omp_get_wtime();
 
-    for(int i = 5; i < 6; i++) {
+    for(int i = 5; i < 6; i++) { // we used this line to single out a letter in the alphabet so we could take breaks between each letter, set to check letter f
         string starting_letter = string(1,alphabet[i]);
         cout << "Currently checking string starting with: " << starting_letter << endl;
-        pwd_recurs(alphabet, starting_letter, 5);
+        pwd_recurs(alphabet, starting_letter, 2); // the numerical parameter is the .size() of the passwords we are looking at, set to check length 6
         cout << "Passwords starts with " << alphabet[i] << " are cleared.\n";
     }
 
